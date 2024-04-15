@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Idade</title>
+    <!-- Adicionando Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilo adicional */
+        body {
+            padding: 20px;
+        }
+    </style>
+    <script>
+        function verificarIdade() {
+            // Obtém o valor da idade digitada pelo usuário
+            var idade = document.getElementById("idade").value;
+
+            // Verifica se o campo de idade está vazio
+            if (idade === "") {
+                alert("Por favor, digite sua idade.");
+                return;
+            }
+
+            // Converte a idade para um número inteiro
+            idade = parseInt(idade);
+
+            // Verifica se a idade é um número válido
+            if (isNaN(idade)) {
+                alert("Por favor, digite uma idade válida.");
+                return;
+            }
+
+            // Verifica se o usuário é maior de idade ou menor de idade
+            if (idade >= 18) {
+                document.getElementById("resultado").textContent = "Você é maior de idade.";
+            } else {
+                document.getElementById("resultado").textContent = "Você é menor de idade.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Verificação de Idade</h1>
+        <div class="form-group">
+            <label for="idade">Digite sua idade:</label>
+            <input type="text" class="form-control" id="idade">
+        </div>
+        <button class="btn btn-primary" onclick="verificarIdade()">Verificar</button>
+        <p id="resultado" class="mt-3"></p>
+    </div>
+
+    <!-- Adicionando Bootstrap JS (opcional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
